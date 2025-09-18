@@ -25,6 +25,14 @@ type ListProps<T> = {
 function List<T>({ items, renderItem }: ListProps<T>) {
   return <ul>{items.map(renderItem)}</ul>;
 }
+interface BaseUser {
+  id: number;
+  name: string;
+}
+
+interface AdminUser extends BaseUser {
+  role: "admin" | "superadmin";
+}
 
 export default function Home() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -41,6 +49,12 @@ export default function Home() {
 
   console.log("Marks: ", marks);
 
+  const admin: AdminUser = {
+    id: 1,
+    name: "Waqar",
+    role: "admin",
+  };
+  console.log("Admin: ", admin);
   const greeting: string = "Hello, Next.js with Typescript!";
   console.log(greeting);
   const isActive: boolean = true;
