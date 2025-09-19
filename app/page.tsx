@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 type ButtonProps = {
@@ -40,7 +41,7 @@ export default function Home() {
     inputRef.current?.focus();
   }, []);
 
-  type NestedRecord = Record<string, Record<string, number>>;
+  type NestedRecord = { [key: string]: { [key: string]: number } };
 
   const marks: NestedRecord = {
     math: { kamran: 95, ahmad: 88, hassan: 90 },
@@ -134,6 +135,7 @@ export default function Home() {
           </li>
         )}
       />
+      <Link href="/you">You</Link>
     </div>
   );
 }
